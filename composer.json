@@ -7,7 +7,7 @@
       "hoglandetsit\\iTop\\Extension\\": "src"
     }
   },
-  "name": "hoglandets-it/itop-warn-expiration",
+  "name": "hoglandetsit/itop-warn-expiration",
   "type": "itop-extension",
   "description": "Warn about expiration dates on objects",
   "require": {

@@ -3,6 +3,11 @@ stages:
   - deploy-dev
   - deploy-prod
 
+default:
+  tags:
+    - dind
+    - docker
+
 deploy-dev:
   stage: deploy-dev
   tags:
@@ -14,6 +19,7 @@ deploy-dev:
     - "cp -r ~/itop-utv.intern.hoglandet.se/public/extensions/${CI_PROJECT_NAME} ~/.gitlab-runner/backups/${CI_PROJECT_NAME}"
     - "cp -rf ./* ~/itop-utv.intern.hoglandet.se/public/extensions/${CI_PROJECT_NAME}/"
     - "~/itop-utv.intern.hoglandet.se/public/extensions/scripts/update_datamodel.py both"
+
 
 deploy-prod:
   stage: deploy-prod
@@ -32,7 +38,4 @@ deploy-prod:
 include:
   - project: 'intern/gitlab/ci-templates'
     ref: master
-  file: 'templates/composer.yml'
-
-
-
+    file: 'templates/composer.yml'
